@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playwrite+BE+VLG:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playwrite+BE+VLG:wght@100..400&family=Zain:wght@200;300;400;700;800;900&display=swap');
+
+html{
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    position: relative;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-bottom: 14rem;
+  
+}
+li{
+  list-style: none;
+
+}
+.hover-effect{
+  color:black;
+  transition: 300ms;
+}
+.hover-effect:hover{
+  color:  rgb(17, 150, 217);
+}
+
+.logo-font{
+  font-family: "Dancing Script", cursive;;
+}
+.custom{
+  width: 400px;
+  height: 400px;
+  margin-top: 30px;
+}
+.custopa{
+  padding-top: 90px;
+}
+.tfont{
+  font-family: "Zain", sans-serif;
+}
+.md-custom{
+  color: rgb(190, 180, 180);
+}
+.link{
+  text-decoration: none;
+}
+.bline{
+  border-radius: 10px;
+  border: 1px solid rgb(109, 109, 237);
+}
+.box-shadow-custom{
+  box-shadow: 5px 5px 10px #555;
+}
+.demo{
+  margin-right: auto;
+  margin-left: auto;
+}
+#nav{
+  position: sticky;
+  top:0;
+  z-index: 30;
+}
+.cursor{
+  cursor: pointer;
+}
+.footer{
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+.custom-cart{
+  width: 170px;
+  height: 170px;
+}
+@media (max-width:768px){
+  .md-custom{
+    text-align: center;
+  }
+  .custom-viewcart{
+    margin-right: 20px;
+  }
+  .custom-cart{
+    width: 170px;
+    height: 170px;
+  }
+  .flex-directi-column{
+    flex-direction: column;
+  }
+  .md-display-none{
+    display: none;
+}
+.custopa{
+  padding-top: 30px;
+}
+.custom{
+  width: 300px;
+  height:300px ;
+}
+.changes{
+  flex-direction: column;
+}
+.img-dimension{
+  width:300;
+  height: 300;
+}
+.bline{
+  border:none;
+}
+}
+@media (max-width:375px){
+  .custom-cart{
+    width: 120px;
+    height: 120px;
+  }
+}
+@media (max-width:320px){
+  .space-custom{
+    margin-left: 20px;
+  }
+  .custom{
+    width: 220px;
+    height: 220px;
+  }
+  .custom-cart{
+    margin-top: 30px;
+  }
+}
