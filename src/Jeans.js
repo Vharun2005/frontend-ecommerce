@@ -2,12 +2,15 @@ import React, { useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-const Jeans = ({jeanpants}) => {
+const Jeans = ({jeanpants,jeanloading}) => {
     
-    
+   
 
   return (
     <section>
+        <div className="con">
+        <p className={jeanloading ? 'loader' :''}></p>
+      </div>
         <h3 className='tfont text-center display-4 fw-bold mt-3 mb-2'>Jean Pants</h3>
             <Container>
                         <Row className=''>
@@ -24,7 +27,7 @@ const Jeans = ({jeanpants}) => {
                                         </Col>
                                       
                                     );
-                                }):<p className='text-center'>please reload the website</p>
+                                }):<p className='text-center'>please wait ...</p>
                             }
                         
                         </Row>
