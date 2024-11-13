@@ -53,7 +53,7 @@ const CartView = ({cartItems,setCartItems,cartloading}) => {
       item._id !== id
     ))
     setCartItems(updateArr)
-    const URL = "https://full-stack-ecommerce-mini.onrender.com//api/carts/"
+    const URL = "https://full-stack-ecommerce-mini.onrender.com/api/carts/"
         const postOptions = {
           method:'DELETE',
           headers:{
