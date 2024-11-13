@@ -16,36 +16,93 @@ import ViewTshirt from './ViewTshirt';
 import ViewElectronics from './ViewElectronics';
 import CartView from './CartView';
 import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 function App() {
   const [cartItems,setCartItems] = useState([])
+  const [shirtLoading,setShirtLoading] = useState(false)
+  const[jeanloading,setjeanloading] = useState(false)
+  const [electricLoading,setElectricloading] = useState(false)
+  const [cartloading,setcartloading] = useState(false)
+
+  const FetchJeans = async() => {
+    try{
+      setjeanloading(true)
+      const responseTwo = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/jeans')
+      const resultTwo = await responseTwo.json()
+      setJeanpants(resultTwo)
+    }catch(err){
+      if(err.response){
+        console.log(err.response.status)
+        toast(`${err.response.status}`)
+      }else{
+        console.error(err.message)
+      }
+    }finally{
+      setjeanloading(false)
+    }
+  }
+
+  
+      
+  const FetchElectric = async() => {
+    try{
+      const responseTwo = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/electronics')
+      const resultTwo = await responseTwo.json()
+      setElectronics(resultTwo)
+    }catch(err){
+      if(err.response){
+        console.log(err.response.status)
+        toast(`${err.response.status}`)
+      }else{
+        console.error(err.message)
+      }
+    }finally{
+      setElectricloading(false)
+    }
+  }
+  const FetchCart = async() => {
+    try{
+      setcartloading(true)
+      const responseFour = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/carts')
+      const resultFour = await responseFour.json()
+      setCartItems(resultFour)
+    }catch(err){
+      if(err.response){
+        console.log(err.response.status)
+        toast(`${err.response.status}`)
+      }else{
+        console.error(err.message)
+      }
+    }finally{
+      setcartloading(false)
+    }
+  }
+    
 
   useEffect(()=>{
     const fetchItems = async() =>{
       try{
+        setShirtLoading(true)
         const response = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/tshirts')
         const result = await response.json()
         setShirts(result)
-        const responseTwo = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/jeans')
-        const resultTwo = await responseTwo.json()
-        setJeanpants(resultTwo)
-        const responseThree = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/electronics')
-        const resultThree = await responseThree.json()
-        setElectronics(resultThree)
-        const responseFour = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/carts')
-        const resultFour = await responseFour.json()
-        setCartItems(resultFour)
       }catch(err){
         if(err.response){
           console.log(err.response.status)
-          alert(`${err.response.status}`)
+          toast(`${err.response.status}`)
         }else{
           console.error(err.message)
         }
+      }finally{
+        setShirtLoading(false)
       }
 
     }
     fetchItems()
+    FetchJeans()
+    FetchElectric()
+    FetchCart()
   },[])
 
   const [tshirts,setTshirts] = useState([])
@@ -62,17 +119,17 @@ function App() {
         <div>
           <Routes>
             <Route path='/' element={<ProductsContainer/>}></Route>
-            <Route path='/electronics' element={<Eappliances Electronics={Electronics}/>}></Route>
+            <Route path='/electronics' element={<Eappliances Electronics={Electronics} electricLoading={electricLoading}/>}></Route>
             <Route path='/loginpage' element={<LoginPage/>}></Route>
             <Route path='/fashions' element={<FashionPage tshirts={tshirts}/>}/>
             <Route path='/t-shirts' element={<Tshirts/>} />
-            <Route path='/jeanpants' element={<Jeans jeanpants={jeanpants}/>} />
-            <Route path='/shirts' element={<Shirts shirts={shirts}/>} />
+            <Route path='/jeanpants' element={<Jeans jeanpants={jeanpants} jeanloading={jeanloading}/>} />
+            <Route path='/shirts' element={<Shirts shirts={shirts} shirtLoading={shirtLoading}/>} />
             <Route path='/shirts/:id' element={<ViewShirt  cartItems={cartItems} setCartItems={setCartItems}/>}></Route>
-            <Route path='/jeans/:id' element={<ViewJeans cartItems={cartItems} setCartItems={setCartItems}/>}></Route>
-            <Route path='/tshirts/:id' element={<ViewTshirt  tshirts={tshirts}/>}></Route>
+            <Route path='/jeans/:id' element={<ViewJeans jeanloading={jeanloading} cartItems={cartItems} setCartItems={setCartItems}/>}></Route>
+            <Route path='/tshirts/:id' element={<ViewTshirt  shirtLoading={shirtLoading} tshirts={tshirts}/>}></Route>
             <Route path='/electronics/:id' element={<ViewElectronics  cartItems={cartItems} setCartItems={setCartItems}/>} />
-            <Route path='/cart' element={<CartView cartItems={cartItems} setCartItems={setCartItems} />} />
+            <Route path='/cart' element={<CartView cartItems={cartItems} setCartItems={setCartItems} cartloading={cartloading} />} />
           </Routes>
         </div>
         <Footer/>
