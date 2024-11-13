@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import apiRequest from './appii/apiRequest';
 import { ToastContainer, toast } from 'react-toastify';
 
-const CartView = ({cartItems,setCartItems}) => {
+const CartView = ({cartItems,setCartItems,cartloading}) => {
  
   
   
@@ -78,11 +78,16 @@ const CartView = ({cartItems,setCartItems}) => {
   return (
     <div>
     <section className='d-flex justify-content-evenly flex-directi-column '> 
+       <div className="con">
+         <p className={cartloading ? 'loader' :''}></p>
+        </div>
       
       { cartItems.length ? 
       
         <>
          <div>
+         
+
          <ToastContainer position='top-center'/>
          {
           cartItems.map((item)=>{
@@ -134,7 +139,7 @@ const CartView = ({cartItems,setCartItems}) => {
      
      </section>
      <div>
-      {!cartItems.length ? 
+      {!cartItems.length && !cartloading ? 
        <>
         <p className='fw-medium text-center m-5 fs-3 '>Cart is Empty ! </p>
         <div className='text-center mt-2'>
