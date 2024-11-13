@@ -2,11 +2,14 @@ import React, { useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-const Shirts = ({shirts}) => {
+const Shirts = ({shirts,shirtLoading}) => {
 
     
   return (
     <section>
+      <div className="con">
+        <p className={shirtLoading ? 'loader' :''}></p>
+      </div>
         <h3 className='tfont text-center display-4 fw-bold mt-3 mb-2'>Shirts</h3>
         <Container>
             <Row>
