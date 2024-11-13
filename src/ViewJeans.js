@@ -48,7 +48,7 @@ const ViewJeans = ({cartItems,setCartItems}) => {
         setCartItems(newArr)
         toast('Item added to Cart')
         console.log(cartItems)
-        const URL = "https://full-stack-ecommerce-mini.onrender.com//api/carts/"
+        const URL = "https://full-stack-ecommerce-mini.onrender.com/api/carts/"
         const postOptions = {
           method:'POST',
           headers:{
