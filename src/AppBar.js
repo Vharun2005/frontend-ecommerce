@@ -13,7 +13,7 @@ const AppBar = () => {
 
   <Navbar expand="lg" className="bg-body-secondary" id='nav'>
     <Container>
-       <h2 className='fs-1 logo-font fw-bold'><span><FaOpencart className='text-primary'/> FuryCart</span></h2>
+       <h2 className='fs-1 logo-font log fw-bold'><span><FaOpencart className='text-primary'/> FuryCart</span></h2>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end' >
         <Nav className='text-center'>
