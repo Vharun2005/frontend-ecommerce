@@ -17,6 +17,7 @@ import ViewElectronics from './ViewElectronics';
 import CartView from './CartView';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
+import SignupPage from './SignupPage';
 
 function App() {
   const [cartItems,setCartItems] = useState([])
@@ -130,6 +131,7 @@ function App() {
             <Route path='/tshirts/:id' element={<ViewTshirt  shirtLoading={shirtLoading} tshirts={tshirts}/>}></Route>
             <Route path='/electronics/:id' element={<ViewElectronics  cartItems={cartItems} setCartItems={setCartItems}/>} />
             <Route path='/cart' element={<CartView cartItems={cartItems} setCartItems={setCartItems} cartloading={cartloading} />} />
+            <Route path='/login' element={<SignupPage/>}/>
           </Routes>
         </div>
         <Footer/>
