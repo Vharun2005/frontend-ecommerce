@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playwrite+BE+VLG:wght@100..400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playwrite+BE+VLG:wght@100..400&family=Zain:wght@200;300;400;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
 
 html{
   height: 100%;
@@ -62,14 +62,22 @@ li{
 .hover-effect:hover{
   color:  rgb(17, 150, 217);
 }
+.footer
 
 .logo-font{
-  font-family: "Dancing Script", cursive;;
+  font-family: "Dancing Script", cursive;
+}
+.log{
+  font-family: "Dancing Script", cursive;
 }
 .custom{
   width: 400px;
   height: 400px;
   margin-top: 30px;
+}
+.color-fa{
+  color: rgb(21, 27, 97);
+  font-family:"Afacad Flux", serif;
 }
 .custopa{
   padding-top: 90px;
@@ -102,15 +110,34 @@ li{
 .cursor{
   cursor: pointer;
 }
+
 .footer{
   position: absolute;
-  right: 0;
-  left: 0;
-  bottom: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    color: white;
+
 }
+.logo-font
 .custom-cart{
   width: 170px;
   height: 170px;
+}
+.login-btn{
+  color: white;
+  height: 35px;
+  width: 80px;
+  background-color: rgb(50, 0, 251);
+  margin-top: 8px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  transition: 0.3s;
+}
+.login-btn:hover{
+  background-color: rgb(85, 85, 231);
 }
 @media (max-width:768px){
   .md-custom{
@@ -136,6 +163,7 @@ li{
   width: 300px;
   height:300px ;
 }
+
 .changes{
   flex-direction: column;
 }
@@ -146,6 +174,9 @@ li{
 .bline{
   border:none;
 }
+}
+@media (max-width:393px){
+
 }
 @media (max-width:375px){
   .custom-cart{
