@@ -8,6 +8,7 @@ const CartView = ({cartItems,setCartItems,cartloading,name,setAmount}) => {
  
   
   
+<<<<<<< HEAD
   const incrementQty = async (id) => {
     try {
         // Update the cart items state
@@ -21,6 +22,22 @@ const CartView = ({cartItems,setCartItems,cartloading,name,setAmount}) => {
             }
             return item; // Return unchanged item
         });
+=======
+  const incrementQty = (id) =>{
+    const update = cartItems.map((item)=>( item._id === id  ? item.qty === 10 ? toast('stock is limited'):null:null))
+    const updateArr = cartItems.map((item)=>( item._id === id ? {...item,qty:item.qty<10?item.qty+1:item.qty}:item))
+    setCartItems(updateArr)
+    const Postarr = updateArr.find((item) => item._id === id)
+    const URL = "https://full-stack-ecommerce-mini.onrender.com/api/carts/"
+        const postOptions = {
+          method:'PATCH',
+          headers:{
+            "Content-Type":"application/json"
+          },
+          body:JSON.stringify(Postarr)
+        }
+        console.log(Postarr)
+>>>>>>> 1499d1b23a97d7855240adc6be2c07ec806fa8b7
 
         // Set updated cart items
         setCartItems(updatedCart);
@@ -46,8 +63,26 @@ const CartView = ({cartItems,setCartItems,cartloading,name,setAmount}) => {
     setCartItems(updateArr)
     const username = name
     const Postarr = updateArr.find((item) => item._id === id)
+<<<<<<< HEAD
     const payload = {...Postarr,username}
     await axios.patch('http://localhost:3500/api/carts',payload)
+=======
+    const URL = "https://full-stack-ecommerce-mini.onrender.com/api/carts/"
+        const postOptions = {
+          method:'PATCH',
+          headers:{
+            "Content-Type":"application/json"
+          },
+          body:JSON.stringify(Postarr)
+        }
+        console.log(Postarr)
+
+        const result = apiRequest(URL,postOptions)
+        if(result){
+          console.log(result)
+        }
+    
+>>>>>>> 1499d1b23a97d7855240adc6be2c07ec806fa8b7
   }
   const removeItem = async(id) =>{
     const updateArr = cartItems.filter((item)=>(
@@ -55,6 +90,7 @@ const CartView = ({cartItems,setCartItems,cartloading,name,setAmount}) => {
     ))
     const payload = {_id:id,username:name}
     setCartItems(updateArr)
+<<<<<<< HEAD
     await axios.delete('http://localhost:3500/api/carts', {
       data: {
         _id: id,
@@ -65,6 +101,26 @@ const CartView = ({cartItems,setCartItems,cartloading,name,setAmount}) => {
   const updateAmount = () => {
     let amount = cartItems.reduce((acc,item) => (acc+item.qty *item.price),0)
     setAmount(amount)
+=======
+    const URL = "https://full-stack-ecommerce-mini.onrender.com//api/carts/"
+        const postOptions = {
+          method:'DELETE',
+          headers:{
+            "Content-Type":"application/json"
+          },
+          body:JSON.stringify({_id:id})
+        }
+        
+
+        const result = apiRequest(URL,postOptions)
+        if(result){
+          console.log(result)
+        }
+    
+
+
+
+>>>>>>> 1499d1b23a97d7855240adc6be2c07ec806fa8b7
   }
 
   return (

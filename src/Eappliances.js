@@ -23,7 +23,11 @@ const Eappliances = ({Electronics}) => {
                                     </Col>
                                 )
                                 
+<<<<<<< HEAD
                             }):<h1 className='text-center'>please wait...</h1>
+=======
+                            }):<h1 className='text-center  '>please wait ...</h1>
+>>>>>>> 1499d1b23a97d7855240adc6be2c07ec806fa8b7
                         
                       }
                     </Row>

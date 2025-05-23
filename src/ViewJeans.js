@@ -50,7 +50,25 @@ const ViewJeans = ({cartItems,setCartItems,name}) => {
         const newArr = [...cartItems,newObj]
         setCartItems(newArr)
         toast('Item added to Cart')
+<<<<<<< HEAD
         await axios.post('http://localhost:3500/api/postcart/',newObj)
+=======
+        console.log(cartItems)
+        const URL = "https://full-stack-ecommerce-mini.onrender.com//api/carts/"
+        const postOptions = {
+          method:'POST',
+          headers:{
+            "Content-Type":"application/json"
+          },
+          body:JSON.stringify(newObj)
+        }
+        console.log(newObj)
+
+        const result = apiRequest(URL,postOptions)
+        if(result){
+          console.log(result)
+        }
+>>>>>>> 1499d1b23a97d7855240adc6be2c07ec806fa8b7
       }
     }
     else{

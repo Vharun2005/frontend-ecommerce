@@ -112,10 +112,25 @@ function App() {
   useEffect(()=>{
     const fetchItems = async() =>{
       try{
+<<<<<<< HEAD
         setShirtLoading(true)
         const response = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/tshirts')
         const result = await response.json()
         setShirts(result)
+=======
+        const response = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/tshirts')
+        const result = await response.json()
+        setShirts(result)
+        const responseTwo = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/jeans')
+        const resultTwo = await responseTwo.json()
+        setJeanpants(resultTwo)
+        const responseThree = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/electronics')
+        const resultThree = await responseThree.json()
+        setElectronics(resultThree)
+        const responseFour = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/carts')
+        const resultFour = await responseFour.json()
+        setCartItems(resultFour)
+>>>>>>> 1499d1b23a97d7855240adc6be2c07ec806fa8b7
       }catch(err){
         if(err.response){
           console.log(err.response.status)

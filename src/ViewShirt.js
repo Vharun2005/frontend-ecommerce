@@ -49,8 +49,25 @@ const ViewShirt = ({cartItems,setCartItems,name}) => {
         const newArr = [...cartItems,cartObj]
         setCartItems(newArr)
         toast('Item added to the Cart')
+<<<<<<< HEAD
         const URL = "http://localhost:3500/api/postcart/"
         await axios.post('http://localhost:3500/api/postcart/',cartObj)
+=======
+        const URL = "https://full-stack-ecommerce-mini.onrender.com/api/carts/"
+        const postOptions = {
+          method:'POST',
+          headers:{
+            "Content-Type":"application/json"
+          },
+          body:JSON.stringify(cartObj)
+        }
+        console.log(cartObj)
+
+        const result = apiRequest(URL,postOptions)
+        if(result){
+          console.log(result)
+        }
+>>>>>>> 1499d1b23a97d7855240adc6be2c07ec806fa8b7
       }else{
         return toast('Item aldready added to cart')
       }
@@ -84,7 +101,7 @@ const ViewShirt = ({cartItems,setCartItems,name}) => {
         }
          {!objitem &&
           <>
-            <p className='fw-medium text-center m-5 fs-3 '>Please Reload The Website !</p>
+            <p className='fw-medium text-center m-5 fs-3 '>Please wait... </p>
 
           </>
 
