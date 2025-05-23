@@ -2,93 +2,90 @@
 import { Link } from 'react-router-dom'
 import apiRequest from './appii/apiRequest';
 import { ToastContainer, toast } from 'react-toastify';
+import axios from 'axios'
 
-const CartView = ({cartItems,setCartItems}) => {
+const CartView = ({cartItems,setCartItems,cartloading,name,setAmount}) => {
  
   
   
-  const incrementQty = (id) =>{
-    const update = cartItems.map((item)=>( item._id === id  ? item.qty === 10 ? toast('stock is limited'):null:null))
-    const updateArr = cartItems.map((item)=>( item._id === id ? {...item,qty:item.qty<10?item.qty+1:item.qty}:item))
-    setCartItems(updateArr)
-    const Postarr = updateArr.find((item) => item._id === id)
-    const URL = "https://full-stack-ecommerce-mini.onrender.com/api/carts/"
-        const postOptions = {
-          method:'PATCH',
-          headers:{
-            "Content-Type":"application/json"
-          },
-          body:JSON.stringify(Postarr)
-        }
-        console.log(Postarr)
+  const incrementQty = async (id) => {
+    try {
+        // Update the cart items state
+        const updatedCart = cartItems.map((item) => {
+            if (item._id === id) {
+                if (item.qty === 10) {
+                    toast('Stock is limited');
+                    return item; // Return unchanged item if stock limit is reached
+                }
+                return { ...item, qty: item.qty + 1 }; // Increment quantity
+            }
+            return item; // Return unchanged item
+        });
 
-        const result = apiRequest(URL,postOptions)
-        if(result){
-          console.log(result)
-        }
-    
-  }
-  const decrementQty = (id) => {
+        // Set updated cart items
+        setCartItems(updatedCart);
+
+        // Get the updated item to send to the backend
+        const updatedItem = updatedCart.find((item) => item._id === id);
+        const username = name; // Assuming `name` is available in the current scope
+
+        // Prepare the payload
+        const payload = { ...updatedItem, username };
+
+        // Make the API call
+        const URL = "http://localhost:3500/api/carts/"; // Corrected URL
+        await axios.patch(URL, payload);
+    } catch (error) {
+        console.error('Error updating quantity:', error);
+        toast('Failed to update quantity');
+    }
+};
+
+  const decrementQty = async(id) => {
     const updateArr = cartItems.map((item)=>( item._id === id ? {...item,qty:item.qty>1?item.qty-1:item.qty}:item))
     setCartItems(updateArr)
+    const username = name
     const Postarr = updateArr.find((item) => item._id === id)
-    const URL = "https://full-stack-ecommerce-mini.onrender.com/api/carts/"
-        const postOptions = {
-          method:'PATCH',
-          headers:{
-            "Content-Type":"application/json"
-          },
-          body:JSON.stringify(Postarr)
-        }
-        console.log(Postarr)
-
-        const result = apiRequest(URL,postOptions)
-        if(result){
-          console.log(result)
-        }
-    
+    const payload = {...Postarr,username}
+    await axios.patch('http://localhost:3500/api/carts',payload)
   }
-  const removeItem = (id) =>{
+  const removeItem = async(id) =>{
     const updateArr = cartItems.filter((item)=>(
       item._id !== id
     ))
+    const payload = {_id:id,username:name}
     setCartItems(updateArr)
-    const URL = "https://full-stack-ecommerce-mini.onrender.com//api/carts/"
-        const postOptions = {
-          method:'DELETE',
-          headers:{
-            "Content-Type":"application/json"
-          },
-          body:JSON.stringify({_id:id})
-        }
-        
-
-        const result = apiRequest(URL,postOptions)
-        if(result){
-          console.log(result)
-        }
-    
-
-
-
+    await axios.delete('http://localhost:3500/api/carts', {
+      data: {
+        _id: id,
+        username: name,
+      },
+    });
   }
-
-  
+  const updateAmount = () => {
+    let amount = cartItems.reduce((acc,item) => (acc+item.qty *item.price),0)
+    setAmount(amount)
+  }
 
   return (
     <div>
     <section className='d-flex justify-content-evenly flex-directi-column '> 
+       <div className="con">
+         <p className={cartloading ? 'loader' :''}></p>
+        </div>
       
       { cartItems.length ? 
       
         <>
          <div>
+         
+
          <ToastContainer position='top-center'/>
          {
           cartItems.map((item)=>{
             return(
                 
-              <div className='border mt-2 ms-5 custom-viewcart' key={item._id}>
+              <div className='border mt-2 ms-5 custom-viewcart mb-3' key={item._id}>
                 <div className='d-flex  justify-content-evenly mt-2 '>
                   <div>
                     <img  src={item.src} alt='cart-img' className='custom-cart'></img>
@@ -117,7 +114,7 @@ const CartView = ({cartItems,setCartItems}) => {
               <p className='fw-medium fs-5'>Total Amount:${cartItems.reduce((acc,item) => (acc+item.qty *item.price),0)}</p>
             </div>
             <div>
-            <Link to={'/loginpage'}><button type="button" className="btn btn-warning fw-medium">Order Now</button></Link>
+            <Link to={'/orderpage'}><button type="button" className="btn btn-warning fw-medium" onClick={()=>updateAmount()}>Order Now</button></Link>
             </div>
           </div>
         </div>
@@ -134,7 +131,7 @@ const CartView = ({cartItems,setCartItems}) => {
      
      </section>
      <div>
-      {!cartItems.length ? 
+      {!cartItems.length && !cartloading ? 
        <>
         <p className='fw-medium text-center m-5 fs-3 '>Cart is Empty ! </p>
         <div className='text-center mt-2'>

@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+
+.order-custom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "DM Sans", serif; 
+}
+input[type="number"] {
+    appearance: none;
+    -moz-appearance: textfield; /* Firefox */
+    -webkit-appearance: none; /* Chrome, Safari, Edge */
+  }
+  .order-main-div{
+    border: 1px solid rgb(158, 147, 147);
+    width: 600px;
+  }
+.orderpage-input1{
+    gap: 1px;
+    border: none;
+    border-bottom: 1px solid rgb(179, 167, 167);
+    margin-bottom: 2px;
+    margin-right: 10px;
+    margin-left: 10px;
+    outline: none;
+    width: 240px;
+}
+.orderpage-input2{
+    gap: 1px;
+    border: none;
+    border-bottom: 1px solid rgb(179, 167, 167);
+    margin-bottom: 2px;
+    margin-right: 10px;
+    margin-left: 10px;
+    outline: none;
+    width: 240px;
+}
+.text-area-input{
+    text-align: start;
+    width: 450px;
+    border: 1px solid rgb(186, 176, 176);
+    margin-left: 15px;
+    height: 80px;
+    padding: 10px;
+}
+.pay-button{
+    width: 190px;
+    height: 35px;
+    background-color: rgb(7, 95, 7);
+    color: white;
+    padding-top: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.pay-button:hover{
+    color: rgb(125, 125, 245);
+}
+@media(max-width:425px){
+    .orderpage-input1{
+        gap: 1px;
+        border: none;
+        border-bottom: 1px solid rgb(179, 167, 167);
+        margin-bottom: 2px;
+        outline: none;
+        width: 140px;
+    }
+    .text-area-input{
+        text-align: start;
+        width: 250px;
+        border: 1px solid rgb(186, 176, 176);
+        height: 80px;
+        padding: 10px;
+    }
+    .orderpage-input2{
+        gap: 1px;
+        border: none;
+        border-bottom: 1px solid rgb(179, 167, 167);
+        margin-bottom: 2px;
+        margin-right: 10px;
+        margin-left: 10px;
+        outline: none;
+        width: 140px;
+    }
+    .order-main-div{
+        border: 1px solid rgb(158, 147, 147);
+        width: 300px;
+    }
+    .text-center-med{
+        text-align: center;
+    }
+}

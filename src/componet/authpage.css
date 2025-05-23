@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .auth-container {
+    perspective: 1200px;
+    width: 400px;
+    height: 500px;
+    position: relative;
+    transition: transform 0.7s ease-in-out;
+    transform-style: preserve-3d;
+  }
+  
+  .auth-container.rotate-to-signup {
+    transform: rotateY(180deg);
+  }
+  
+  .auth-container.rotate-to-login {
+    transform: rotateY(0deg);
+  }
+  
+  .form-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    background: white;
+  }
+  
+  .signup {
+    transform: rotateY(180deg);
+  }
+  
+  .signup-btn {
+    padding: 10px 20px;
+    background: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .signup-btn:hover {
+    background: #45a049;
+  }
+  
+  .cursor {
+    color: blue;
+    cursor: pointer;
+  }
+  
+  .cursor:hover {
+    text-decoration: underline;
+  }
+  

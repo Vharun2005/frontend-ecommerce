@@ -1,9 +1,12 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState,useEffect,useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import apiRequest from './appii/apiRequest';
+import { BackendContext } from './context/Context';
+import axios from 'axios';
 
-const ViewShirt = ({cartItems,setCartItems}) => {
+const ViewShirt = ({cartItems,setCartItems,name}) => {
+  const {user} = useContext(BackendContext)
     const {id} = useParams()
     const [objitem,setobjItem] = useState([])
     const [qty,setQty] = useState(1)
@@ -37,30 +40,23 @@ const ViewShirt = ({cartItems,setCartItems}) => {
         setQty(qty -1 )
       }
     }
-    const AddtoCart = () => {
-      const cartObj = {...objitem,qty}
+    const AddtoCart = async() => {
+      if(user){
+      const username = name
+      const cartObj = {...objitem,qty,username}
       const ifExists = cartItems.length ? cartItems.find((item) => item._id === cartObj._id) : null
       if(!ifExists){
         const newArr = [...cartItems,cartObj]
         setCartItems(newArr)
         toast('Item added to the Cart')
-        const URL = "https://full-stack-ecommerce-mini.onrender.com/api/carts/"
-        const postOptions = {
-          method:'POST',
-          headers:{
-            "Content-Type":"application/json"
-          },
-          body:JSON.stringify(cartObj)
-        }
-        console.log(cartObj)
-
-        const result = apiRequest(URL,postOptions)
-        if(result){
-          console.log(result)
-        }
+        const URL = "http://localhost:3500/api/postcart/"
+        await axios.post('http://localhost:3500/api/postcart/',cartObj)
       }else{
         return toast('Item aldready added to cart')
       }
+    }else{
+          toast('please Log in to Add the Item')
+        }
     }
   return (
     <section className='d-flex justify-content-evenly changes'>

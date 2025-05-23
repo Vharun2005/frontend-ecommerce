@@ -1,13 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playwrite+BE+VLG:wght@100..400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playwrite+BE+VLG:wght@100..400&family=Zain:wght@200;300;400;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
 
 html{
   height: 100%;
 }
-
+.main-container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main{
+  flex:1;
+}
 body {
   margin: 0;
-  min-height: 100%;
+  height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -19,23 +26,91 @@ body {
 }
 li{
   list-style: none;
-
 }
+.style{
+   width: 98px;
+   height: 45px;
+   background-color: blue;
+   border-radius: 10px;
+   margin-left:10px;
+   transition: 0.2s;
+   text-align: center;
+}
+.style:hover{
+  background-color: rgb(93, 93, 238);
+}
+.profile-word{
+  margin-top: 9.5px;
+  font-size: 1.1rem;
+  padding-left: 2px;
+  color:white;
+  transition: 0.2s;
+}
+.profile{
+  margin-top: 8px;
+  font-size: 2rem;
+  color: rgb(94, 238, 11);
+  transition: 0.2s;
+}
+
 .hover-effect{
   color:black;
   transition: 300ms;
 }
+.con{
+  display: flex;
+  justify-content: center; 
+  margin-top: 8px; 
+}
+.loader{
+  width: 50px;
+  --b: 8px; 
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 1px;
+  background: conic-gradient(#0000 10%, #f03355) content-box;
+  -webkit-mask:
+    repeating-conic-gradient(#0000 0deg, #000 1deg 20deg, #0000 21deg 36deg),
+    radial-gradient(farthest-side, #0000 calc(100% - var(--b) - 1px), #000 calc(100% - var(--b)));
+  -webkit-mask-composite: destination-in;
+  mask:
+    repeating-conic-gradient(#0000 0deg, #000 1deg 20deg, #0000 21deg 36deg),
+    radial-gradient(farthest-side, #0000 calc(100% - var(--b) - 1px), #000 calc(100% - var(--b)));
+  mask-composite: intersect;
+
+  /* Animation */
+  animation: l4 1s infinite steps(10);
+}
+
+@keyframes l4 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .hover-effect:hover{
   color:  rgb(17, 150, 217);
 }
 
+
 .logo-font{
-  font-family: "Dancing Script", cursive;;
+  font-family: "Dancing Script", cursive;
+  margin-top: 20px;
+  margin-left: 30px;
 }
+
 .custom{
   width: 400px;
   height: 400px;
   margin-top: 30px;
+}
+
+.color-fa{
+  color: rgb(21, 27, 97);
+  font-family:"Afacad Flux", serif;
 }
 .custopa{
   padding-top: 90px;
@@ -68,19 +143,49 @@ li{
 .cursor{
   cursor: pointer;
 }
+
 .footer{
-  position: absolute;
-  right: 0;
-  left: 0;
-  bottom: 0;
+  margin-top: 0; /* Remove any added margins */
+  padding: 20px 0; /* Adjust padding as needed */
+  background-color: #333;
+  color: white;
+  position: relative;
 }
+
+
 .custom-cart{
   width: 170px;
   height: 170px;
 }
+.login-btn{
+  color: white;
+  height: 35px;
+  width: 80px;
+  background-color: rgb(50, 0, 251);
+  margin-top: 8px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  transition: 0.3s;
+}
+.login-btn:hover{
+  background-color: rgb(85, 85, 231);
+}
+.cus-slider{
+  height: 500px;
+}
 @media (max-width:768px){
+  .style{
+    margin-left: 0px;
+  }
+  .cus-slider{
+    height: 380px;
+  }
   .md-custom{
     text-align: center;
+  }
+  .cus-profile-btn{
+    justify-content: center;
   }
   .custom-viewcart{
     margin-right: 20px;
@@ -102,6 +207,8 @@ li{
   width: 300px;
   height:300px ;
 }
+
+
 .changes{
   flex-direction: column;
 }
@@ -113,15 +220,22 @@ li{
   border:none;
 }
 }
+
 @media (max-width:375px){
   .custom-cart{
     width: 120px;
     height: 120px;
   }
+  .cus-slider{
+    height: 260px;
+  }
 }
 @media (max-width:320px){
   .space-custom{
     margin-left: 20px;
+  }
+  .cus-slider{
+    height: 220px;
   }
   .custom{
     width: 220px;

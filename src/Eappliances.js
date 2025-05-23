@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+
 import { Col, Container, Row } from 'react-bootstrap'
 import Eappliancescontent from './Eappliancescontent'
 
@@ -23,7 +23,7 @@ const Eappliances = ({Electronics}) => {
                                     </Col>
                                 )
                                 
-                            }):<h1 className='text-center text-warning '>please reload website</h1>
+                            }):<h1 className='text-center'>please wait...</h1>
                         
                       }
                     </Row>

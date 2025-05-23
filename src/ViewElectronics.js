@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import apiRequest from './appii/apiRequest';
+import { BackendContext } from './context/Context';
 
 
 const ViewElectronics = ({cartItems,setCartItems}) => {
 
   const [qty,setQty] = useState(1)
     const {id} = useParams()
+    const {user} = useContext(BackendContext)
     const [objitem,setobjItem] = useState([])
     
     const incrementQty = () =>{
@@ -23,6 +25,7 @@ const ViewElectronics = ({cartItems,setCartItems}) => {
       }
     }
     const addTocart = async() =>{
+      if(user){
       const newObj = {...objitem,qty}
       console.log(objitem)
       const ifExists = cartItems.length ? cartItems.find((item) => item._id.toString() === id) :null
@@ -48,6 +51,9 @@ const ViewElectronics = ({cartItems,setCartItems}) => {
           console.log(result)
         }
       }
+    }else{
+      toast('please log in to add the item to cart')
+    }
     }
     
     useEffect(()=>{
@@ -81,8 +87,8 @@ const ViewElectronics = ({cartItems,setCartItems}) => {
              <p className='fw-medium fs-5 text-center'>{` ${objitem.prodDetails}`}</p>
              <p className='mt-2 text-center fw-medium '>Price:{objitem.price}</p>
              <p className='mt-2 text-center fw-medium' >Grab soon Offers Ends Soon</p>
-             <p className='fw-medium fs-5'>Qty: <button onClick={()=>decrementQty()}>-</button> {qty} <button onClick={()=>incrementQty()}>+</button></p>
              <div className='text-center'>
+             <p className='fw-medium fs-5'>Qty: <button onClick={()=>decrementQty()}>-</button> {qty} <button onClick={()=>incrementQty()}>+</button></p>
              <button className="btn btn-warning fw-medium mt-2 mb-2" onClick={()=>addTocart()}>Add to Cart</button>
             </div>
  

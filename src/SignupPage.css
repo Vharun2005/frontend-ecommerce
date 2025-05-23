@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Parkinsans:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap');
+
+
+
+.cus-name-input{
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    height: 50px;
+    padding: 5px 0px;
+    padding-left: 5px;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top:0px;
+   border: none;
+}
+.center{
+    margin-left: 49px;
+    font-family: "Kanit", serif;
+}
+.cus-pass-input{
+    margin-left: auto;
+    margin-right: auto;
+    width: 270px;
+    height: 50px;
+    padding: 5px 0px;
+    padding-left: 5px;
+    font-weight: 500;
+    border-radius: 6px;
+    margin-top:0px;
+   border: none;
+}
+.cus-name-input:focus{
+    outline: none;
+}
+.cus-pass-input:focus{
+    outline: none;
+}
+.cus-pass-width{
+    width: 300px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 6px;
+}
+.cus-h-w{
+    width: 400px;
+    height:400px;
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    border: 1px solid rgb(47, 47, 244);
+    color: aliceblue;
+    border-radius: 10px;
+}
+.signup-btn{
+    width: 240px;
+    height: 40px;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    color: white;
+    font-family:"Kanit", serif ;
+     transition: 0.3s; 
+    background-color: rgb(0, 145, 255);
+}
+.font-fam{
+    font-family: "Kanit", serif;
+}
+.signup-btn:hover{
+    color:black;
+}
+
+@media(max-width:425px){
+    .cus-name-input{
+        width: 200px;
+        height: 40px;
+    }
+    .cus-pass-width{
+        width: 200px;
+        height: 40px;
+    }
+    .cus-pass-input{
+        width: 180px;
+        height: 40px;
+    }
+    .center{
+        margin-left: 47px;
+    }
+    .signup-btn{
+        width: 180px;
+        height: 37px;
+    }
+    .cus-h-w{
+        width: 300px;
+    }
+}
+@media(max-width:325px){
+    .cus-name-input{
+        width: 200px;
+        height: 40px;
+    }
+    .cus-pass-width{
+        width: 200px;
+        height: 40px;
+    }
+    .cus-pass-input{
+        width: 180px;
+        height: 40px;
+    }
+    .center{
+        margin-left: 47px;
+    }
+    .signup-btn{
+        width: 150px;
+        height: 35px;
+    }
+    .cus-h-w{
+        width: 280px;
+    }
+}
