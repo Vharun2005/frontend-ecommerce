@@ -18,11 +18,14 @@ import CartView from './CartView';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import SignupPage from './SignupPage';
+<<<<<<< HEAD
 import Signsecondpage from './Signsecondpage';
 import Profile from './componet/Profile';
 import axios from 'axios'
 import { BackendContext } from './context/Context';
 import OrderPage from './componet/OrderPage';
+=======
+>>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
 
 function App() {
   const {user} = useContext(BackendContext)
@@ -31,10 +34,13 @@ function App() {
   const[jeanloading,setjeanloading] = useState(false)
   const [electricLoading,setElectricloading] = useState(false)
   const [cartloading,setcartloading] = useState(false)
+<<<<<<< HEAD
   const [name,setname] = useState('')
   const [amount,setAmount] = useState(0)
   axios.defaults.headers.common["Authorization"] = user;
 
+=======
+>>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
 
   const FetchJeans = async() => {
     try{
@@ -73,11 +79,18 @@ function App() {
     }
   }
   const FetchCart = async() => {
+<<<<<<< HEAD
     if(name){
     try{
       setcartloading(true)
       const responseFour = await axios.post('http://localhost:3500/api/carts',{username:name})
       const resultFour = await responseFour.data
+=======
+    try{
+      setcartloading(true)
+      const responseFour = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/carts')
+      const resultFour = await responseFour.json()
+>>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
       setCartItems(resultFour)
     }catch(err){
       if(err.response){
@@ -89,6 +102,7 @@ function App() {
     }finally{
       setcartloading(false)
     }
+<<<<<<< HEAD
   }else{
     return null
   }
@@ -106,12 +120,15 @@ function App() {
         alert('error occured for valid token')
       }
     }
+=======
+>>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
   }
     
 
   useEffect(()=>{
     const fetchItems = async() =>{
       try{
+<<<<<<< HEAD
 <<<<<<< HEAD
         setShirtLoading(true)
         const response = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/tshirts')
@@ -131,6 +148,12 @@ function App() {
         const resultFour = await responseFour.json()
         setCartItems(resultFour)
 >>>>>>> 1499d1b23a97d7855240adc6be2c07ec806fa8b7
+=======
+        setShirtLoading(true)
+        const response = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/tshirts')
+        const result = await response.json()
+        setShirts(result)
+>>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
       }catch(err){
         if(err.response){
           console.log(err.response.status)
@@ -149,10 +172,15 @@ function App() {
     fetchItems()
     FetchJeans()
     FetchElectric()
+<<<<<<< HEAD
     if(name){
     FetchCart()
     }
   },[name,user])
+=======
+    FetchCart()
+  },[])
+>>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
 
   const [tshirts,setTshirts] = useState([])
   const [jeanpants,setJeanpants] = useState([])
@@ -174,6 +202,7 @@ function App() {
             <Route path='/t-shirts' element={<Tshirts/>} />
             <Route path='/jeanpants' element={<Jeans jeanpants={jeanpants} jeanloading={jeanloading}/>} />
             <Route path='/shirts' element={<Shirts shirts={shirts} shirtLoading={shirtLoading}/>} />
+<<<<<<< HEAD
             <Route path='/shirts/:id' element={<ViewShirt name={name} cartItems={cartItems} setCartItems={setCartItems}/>}></Route>
             <Route path='/jeans/:id' element={<ViewJeans name={name} jeanloading={jeanloading} cartItems={cartItems} setCartItems={setCartItems}/>}></Route>
             <Route path='/tshirts/:id' element={<ViewTshirt name={name}  shirtLoading={shirtLoading} tshirts={tshirts}/>}></Route>
@@ -183,6 +212,14 @@ function App() {
             <Route path='/signup' element={<Signsecondpage/>}/>
             <Route path='/profile' element={<Profile name={name} />}/>
             <Route path='/orderpage' element={<OrderPage amount={amount} setAmount={setAmount}/>}/>
+=======
+            <Route path='/shirts/:id' element={<ViewShirt  cartItems={cartItems} setCartItems={setCartItems}/>}></Route>
+            <Route path='/jeans/:id' element={<ViewJeans jeanloading={jeanloading} cartItems={cartItems} setCartItems={setCartItems}/>}></Route>
+            <Route path='/tshirts/:id' element={<ViewTshirt  shirtLoading={shirtLoading} tshirts={tshirts}/>}></Route>
+            <Route path='/electronics/:id' element={<ViewElectronics  cartItems={cartItems} setCartItems={setCartItems}/>} />
+            <Route path='/cart' element={<CartView cartItems={cartItems} setCartItems={setCartItems} cartloading={cartloading} />} />
+            <Route path='/login' element={<SignupPage/>}/>
+>>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
           </Routes>
         </main>
         <Footer/>

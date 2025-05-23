@@ -4,7 +4,11 @@ import apiRequest from './appii/apiRequest';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios'
 
+<<<<<<< HEAD
 const CartView = ({cartItems,setCartItems,cartloading,name,setAmount}) => {
+=======
+const CartView = ({cartItems,setCartItems,cartloading}) => {
+>>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
  
   
   
@@ -91,6 +95,7 @@ const CartView = ({cartItems,setCartItems,cartloading,name,setAmount}) => {
     const payload = {_id:id,username:name}
     setCartItems(updateArr)
 <<<<<<< HEAD
+<<<<<<< HEAD
     await axios.delete('http://localhost:3500/api/carts', {
       data: {
         _id: id,
@@ -103,6 +108,9 @@ const CartView = ({cartItems,setCartItems,cartloading,name,setAmount}) => {
     setAmount(amount)
 =======
     const URL = "https://full-stack-ecommerce-mini.onrender.com//api/carts/"
+=======
+    const URL = "https://full-stack-ecommerce-mini.onrender.com/api/carts/"
+>>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
         const postOptions = {
           method:'DELETE',
           headers:{

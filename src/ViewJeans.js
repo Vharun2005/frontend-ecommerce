@@ -54,7 +54,7 @@ const ViewJeans = ({cartItems,setCartItems,name}) => {
         await axios.post('http://localhost:3500/api/postcart/',newObj)
 =======
         console.log(cartItems)
-        const URL = "https://full-stack-ecommerce-mini.onrender.com//api/carts/"
+        const URL = "https://full-stack-ecommerce-mini.onrender.com/api/carts/"
         const postOptions = {
           method:'POST',
           headers:{

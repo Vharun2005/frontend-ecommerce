@@ -24,10 +24,14 @@ const Eappliances = ({Electronics}) => {
                                 )
                                 
 <<<<<<< HEAD
+<<<<<<< HEAD
                             }):<h1 className='text-center'>please wait...</h1>
 =======
                             }):<h1 className='text-center  '>please wait ...</h1>
 >>>>>>> 1499d1b23a97d7855240adc6be2c07ec806fa8b7
+=======
+                            }):<h1 className='text-center text-warning '>please wait...</h1>
+>>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
                         
                       }
                     </Row>
