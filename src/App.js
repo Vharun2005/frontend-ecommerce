@@ -1,4 +1,3 @@
-
 import { useContext, useEffect, useState } from 'react';
 import AppBar from './AppBar';
 import Footer from './Footer';
@@ -18,214 +17,152 @@ import CartView from './CartView';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import SignupPage from './SignupPage';
-<<<<<<< HEAD
 import Signsecondpage from './Signsecondpage';
 import Profile from './componet/Profile';
-import axios from 'axios'
+import axios from 'axios';
 import { BackendContext } from './context/Context';
 import OrderPage from './componet/OrderPage';
-=======
->>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
 
 function App() {
-  const {user} = useContext(BackendContext)
-  const [cartItems,setCartItems] = useState([])
-  const [shirtLoading,setShirtLoading] = useState(false)
-  const[jeanloading,setjeanloading] = useState(false)
-  const [electricLoading,setElectricloading] = useState(false)
-  const [cartloading,setcartloading] = useState(false)
-<<<<<<< HEAD
-  const [name,setname] = useState('')
-  const [amount,setAmount] = useState(0)
+  const { user } = useContext(BackendContext);
+  const [cartItems, setCartItems] = useState([]);
+  const [shirtLoading, setShirtLoading] = useState(false);
+  const [jeanloading, setjeanloading] = useState(false);
+  const [electricLoading, setElectricloading] = useState(false);
+  const [cartloading, setcartloading] = useState(false);
+  const [name, setname] = useState('');
+  const [amount, setAmount] = useState(0);
+
   axios.defaults.headers.common["Authorization"] = user;
 
-=======
->>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
+  const FetchJeans = async () => {
+    try {
+      setjeanloading(true);
+      const responseTwo = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/jeans');
+      const resultTwo = await responseTwo.json();
+      setJeanpants(resultTwo);
+    } catch (err) {
+      if (err.response) {
+        console.log(err.response.status);
+        toast(`${err.response.status}`);
+      } else {
+        console.error(err.message);
+      }
+    } finally {
+      setjeanloading(false);
+    }
+  };
 
-  const FetchJeans = async() => {
-    try{
-      setjeanloading(true)
-      const responseTwo = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/jeans')
-      const resultTwo = await responseTwo.json()
-      setJeanpants(resultTwo)
-    }catch(err){
-      if(err.response){
-        console.log(err.response.status)
-        toast(`${err.response.status}`)
-      }else{
-        console.error(err.message)
+  const FetchElectric = async () => {
+    try {
+      const responseTwo = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/electronics');
+      const resultTwo = await responseTwo.json();
+      setElectronics(resultTwo);
+    } catch (err) {
+      if (err.response) {
+        console.log(err.response.status);
+        toast(`${err.response.status}`);
+      } else {
+        console.error(err.message);
       }
-    }finally{
-      setjeanloading(false)
+    } finally {
+      setElectricloading(false);
     }
-  }
+  };
 
-  
-      
-  const FetchElectric = async() => {
-    try{
-      const responseTwo = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/electronics')
-      const resultTwo = await responseTwo.json()
-      setElectronics(resultTwo)
-    }catch(err){
-      if(err.response){
-        console.log(err.response.status)
-        toast(`${err.response.status}`)
-      }else{
-        console.error(err.message)
-      }
-    }finally{
-      setElectricloading(false)
-    }
-  }
-  const FetchCart = async() => {
-<<<<<<< HEAD
-    if(name){
-    try{
-      setcartloading(true)
-      const responseFour = await axios.post('http://localhost:3500/api/carts',{username:name})
-      const resultFour = await responseFour.data
-=======
-    try{
-      setcartloading(true)
-      const responseFour = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/carts')
-      const resultFour = await responseFour.json()
->>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
-      setCartItems(resultFour)
-    }catch(err){
-      if(err.response){
-        console.log(err.response.status)
-        toast(`${err.response.status}`)
-      }else{
-        console.error(err.message)
-      }
-    }finally{
-      setcartloading(false)
-    }
-<<<<<<< HEAD
-  }else{
-    return null
-  }
-  }
-  
-  const getNamewithToken = async() =>{
-    try{
-      const getName = await axios.post('http://localhost:3500/api/validuser')
-      const name = await getName.data
-      setname(name)
-    }catch(err){
-      if(err.response){
-        alert(err.response.data)
-      }else{
-        alert('error occured for valid token')
-      }
-    }
-=======
->>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
-  }
-    
-
-  useEffect(()=>{
-    const fetchItems = async() =>{
-      try{
-<<<<<<< HEAD
-<<<<<<< HEAD
-        setShirtLoading(true)
-        const response = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/tshirts')
-        const result = await response.json()
-        setShirts(result)
-=======
-        const response = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/tshirts')
-        const result = await response.json()
-        setShirts(result)
-        const responseTwo = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/jeans')
-        const resultTwo = await responseTwo.json()
-        setJeanpants(resultTwo)
-        const responseThree = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/electronics')
-        const resultThree = await responseThree.json()
-        setElectronics(resultThree)
-        const responseFour = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/carts')
-        const resultFour = await responseFour.json()
-        setCartItems(resultFour)
->>>>>>> 1499d1b23a97d7855240adc6be2c07ec806fa8b7
-=======
-        setShirtLoading(true)
-        const response = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/tshirts')
-        const result = await response.json()
-        setShirts(result)
->>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
-      }catch(err){
-        if(err.response){
-          console.log(err.response.status)
-          toast(`${err.response.status}`)
-        }else{
-          console.error(err.message)
+  const FetchCart = async () => {
+    if (name) {
+      try {
+        setcartloading(true);
+        const responseFour = await axios.post('http://localhost:3500/api/carts', { username: name });
+        const resultFour = await responseFour.data;
+        setCartItems(resultFour);
+      } catch (err) {
+        if (err.response) {
+          console.log(err.response.status);
+          toast(`${err.response.status}`);
+        } else {
+          console.error(err.message);
         }
-      }finally{
-        setShirtLoading(false)
+      } finally {
+        setcartloading(false);
       }
-
     }
-    if(user){
-    getNamewithToken()
+  };
+
+  const getNamewithToken = async () => {
+    try {
+      const getName = await axios.post('http://localhost:3500/api/validuser');
+      const name = await getName.data;
+      setname(name);
+    } catch (err) {
+      if (err.response) {
+        alert(err.response.data);
+      } else {
+        alert('error occurred for valid token');
+      }
     }
-    fetchItems()
-    FetchJeans()
-    FetchElectric()
-<<<<<<< HEAD
-    if(name){
-    FetchCart()
+  };
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        setShirtLoading(true);
+        const response = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/tshirts');
+        const result = await response.json();
+        setShirts(result);
+      } catch (err) {
+        if (err.response) {
+          console.log(err.response.status);
+          toast(`${err.response.status}`);
+        } else {
+          console.error(err.message);
+        }
+      } finally {
+        setShirtLoading(false);
+      }
+    };
+    if (user) {
+      getNamewithToken();
     }
-  },[name,user])
-=======
-    FetchCart()
-  },[])
->>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
+    fetchItems();
+    FetchJeans();
+    FetchElectric();
+    if (name) {
+      FetchCart();
+    }
+  }, [name, user]);
 
-  const [tshirts,setTshirts] = useState([])
-  const [jeanpants,setJeanpants] = useState([])
-  const [shirts,setShirts] = useState([])
-  const [Electronics,setElectronics] = useState([])
-
-
+  const [tshirts, setTshirts] = useState([]);
+  const [jeanpants, setJeanpants] = useState([]);
+  const [shirts, setShirts] = useState([]);
+  const [Electronics, setElectronics] = useState([]);
 
   return (
-    
-      <div className='main-container'>
-        <AppBar/>
-        <main>
-          <Routes>
-            <Route path='/' element={<ProductsContainer/>}></Route>
-            <Route path='/electronics' element={<Eappliances Electronics={Electronics} electricLoading={electricLoading}/>}></Route>
-            <Route path='/loginpage' element={<LoginPage/>}></Route>
-            <Route path='/fashions' element={<FashionPage tshirts={tshirts}/>}/>
-            <Route path='/t-shirts' element={<Tshirts/>} />
-            <Route path='/jeanpants' element={<Jeans jeanpants={jeanpants} jeanloading={jeanloading}/>} />
-            <Route path='/shirts' element={<Shirts shirts={shirts} shirtLoading={shirtLoading}/>} />
-<<<<<<< HEAD
-            <Route path='/shirts/:id' element={<ViewShirt name={name} cartItems={cartItems} setCartItems={setCartItems}/>}></Route>
-            <Route path='/jeans/:id' element={<ViewJeans name={name} jeanloading={jeanloading} cartItems={cartItems} setCartItems={setCartItems}/>}></Route>
-            <Route path='/tshirts/:id' element={<ViewTshirt name={name}  shirtLoading={shirtLoading} tshirts={tshirts}/>}></Route>
-            <Route path='/electronics/:id' element={<ViewElectronics name={name} cartItems={cartItems} setCartItems={setCartItems}/>} />
-            <Route path='/cart' element={<CartView cartItems={cartItems} name={name} setCartItems={setCartItems} cartloading={cartloading} setAmount={setAmount}/>} />
-            <Route path='/login' element={<SignupPage/>}/>
-            <Route path='/signup' element={<Signsecondpage/>}/>
-            <Route path='/profile' element={<Profile name={name} />}/>
-            <Route path='/orderpage' element={<OrderPage amount={amount} setAmount={setAmount}/>}/>
-=======
-            <Route path='/shirts/:id' element={<ViewShirt  cartItems={cartItems} setCartItems={setCartItems}/>}></Route>
-            <Route path='/jeans/:id' element={<ViewJeans jeanloading={jeanloading} cartItems={cartItems} setCartItems={setCartItems}/>}></Route>
-            <Route path='/tshirts/:id' element={<ViewTshirt  shirtLoading={shirtLoading} tshirts={tshirts}/>}></Route>
-            <Route path='/electronics/:id' element={<ViewElectronics  cartItems={cartItems} setCartItems={setCartItems}/>} />
-            <Route path='/cart' element={<CartView cartItems={cartItems} setCartItems={setCartItems} cartloading={cartloading} />} />
-            <Route path='/login' element={<SignupPage/>}/>
->>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
-          </Routes>
-        </main>
-        <Footer/>
-      </div>
-               
-   
+    <div className='main-container'>
+      <AppBar />
+      <main>
+        <Routes>
+          <Route path='/' element={<ProductsContainer />} />
+          <Route path='/electronics' element={<Eappliances Electronics={Electronics} electricLoading={electricLoading} />} />
+          <Route path='/loginpage' element={<LoginPage />} />
+          <Route path='/fashions' element={<FashionPage tshirts={tshirts} />} />
+          <Route path='/t-shirts' element={<Tshirts />} />
+          <Route path='/jeanpants' element={<Jeans jeanpants={jeanpants} jeanloading={jeanloading} />} />
+          <Route path='/shirts' element={<Shirts shirts={shirts} shirtLoading={shirtLoading} />} />
+          <Route path='/shirts/:id' element={<ViewShirt name={name} cartItems={cartItems} setCartItems={setCartItems} />} />
+          <Route path='/jeans/:id' element={<ViewJeans name={name} jeanloading={jeanloading} cartItems={cartItems} setCartItems={setCartItems} />} />
+          <Route path='/tshirts/:id' element={<ViewTshirt name={name} shirtLoading={shirtLoading} tshirts={tshirts} />} />
+          <Route path='/electronics/:id' element={<ViewElectronics name={name} cartItems={cartItems} setCartItems={setCartItems} />} />
+          <Route path='/cart' element={<CartView cartItems={cartItems} name={name} setCartItems={setCartItems} cartloading={cartloading} setAmount={setAmount} />} />
+          <Route path='/login' element={<SignupPage />} />
+          <Route path='/signup' element={<Signsecondpage />} />
+          <Route path='/profile' element={<Profile name={name} />} />
+          <Route path='/orderpage' element={<OrderPage amount={amount} setAmount={setAmount} />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
   );
 }
 
