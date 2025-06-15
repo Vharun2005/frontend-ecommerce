@@ -19,7 +19,7 @@ const Signsecondpage = ({toggleForm}) => {
       try{
       setLoading(true)
       const Obj = {username:name,password:password,email:email}
-      const response = await axios.post('http://localhost:3500/api/signup',Obj)
+      const response = await axios.post('https://full-stack-ecommerce-mini.onrender.com/api/signup',Obj)
       const responseData = await response.data
       alert(responseData)
       navigate('/login')
@@ -54,14 +54,14 @@ const Signsecondpage = ({toggleForm}) => {
         </div>
          <div className='d-flex flex-column ms-2 mt-2'>
                     <label className='center'>Password</label>
-                    <div style={{backgroundColor:'white'}} className='cus-pass-width'>
+                    <div className='cus-pass-width'>
                       <input  type={showpass ? 'text' :'password'} required className=' cus-pass-input' value={password} onChange={(e)=>setpassword(e.target.value)} min={8} max={9}></input>
-                      <span>{ showpass ? <FaRegEye className='cursor' style={{color:'black'}} onClick={()=>setShowPass(!showpass)}/> : <FaEyeSlash style={{color:'black'}} className='cursor' onClick={()=>setShowPass(!showpass)}/>}</span>
+                      <span>{ showpass ? <FaRegEye className='cursor ms-2' style={{color:'white'}} onClick={()=>setShowPass(!showpass)}/> : <FaEyeSlash style={{color:'white'}} className='cursor ms-2' onClick={()=>setShowPass(!showpass)}/>}</span>
                     </div>
                 </div>
         <div className='text-center mt-4'>
           <button className='signup-btn' onClick={()=>SignupUser()}>Signup</button>
-          <p className='text-end mt-2'>Aldready have an account?<a className='cursor me-2' href='/login'>Login</a></p>
+          <p className='text-end mt-2 '>Aldready have an account?<a className='cursor me-2' href='/login'>Login</a></p>
         </div>
         </form>
     </div>

@@ -20,6 +20,8 @@ const Profile = ({name}) => {
     }
   return (
     <div>
+      
+      <> 
         <div className='d-flex justify-content-center align-item-center '>
            <div className='border text-center cus-profile'>
               <p className='d-flex ms-4 fw-medium fs-5'>Username: {name}</p>
@@ -35,6 +37,8 @@ const Profile = ({name}) => {
            </div>
             
         </div>
+      </>
+    
     </div>
   )
 }

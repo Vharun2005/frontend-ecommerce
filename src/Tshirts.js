@@ -7,7 +7,7 @@ const Tshirts = (  ) => {
     useEffect(()=>{
       const fetchItems = async() =>{
         try{
-          const res = await fetch('http://localhost:3500/api/tshirt')
+          const res = await fetch('https://full-stack-ecommerce-mini.onrender.com/api/tshirt')
           const result = await res.json()
           setTshirts(result)
         }catch(err){

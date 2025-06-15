@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playwrite+BE+VLG:wght@100..400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
 
-html{
+html {
   height: 100%;
 }
-.main-container{
+.main-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
-main{
-  flex:1;
+main {
+  flex: 1;
 }
 body {
   margin: 0;
@@ -18,65 +18,55 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-    position: relative;
+  position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding-bottom: 14rem;
-  
 }
-li{
+li {
   list-style: none;
 }
-.style{
-   width: 98px;
-   height: 45px;
-   background-color: blue;
-   border-radius: 10px;
-   margin-left:10px;
-   transition: 0.2s;
-   text-align: center;
+.style {
+  width: 98px;
+  height: 45px;
+  background-color: blue;
+  border-radius: 10px;
+  margin-left: 10px;
+  transition: 0.2s;
+  text-align: center;
 }
-.style:hover{
+.style:hover {
   background-color: rgb(93, 93, 238);
 }
-.profile-word{
+.profile-word {
   margin-top: 9.5px;
   font-size: 1.1rem;
   padding-left: 2px;
-  color:white;
+  color: white;
   transition: 0.2s;
 }
-.profile{
+.profile {
   margin-top: 8px;
   font-size: 2rem;
   color: rgb(94, 238, 11);
   transition: 0.2s;
 }
-
-.hover-effect{
-  color:black;
+.hover-effect {
+  color: black;
   transition: 300ms;
 }
-.con{
+.con {
   display: flex;
-  justify-content: center; 
-  margin-top: 8px; 
+  justify-content: center;
+  margin-top: 8px;
 }
-.loader{
+.loader {
   width: 50px;
-  --b: 8px; 
+  --b: 8px;
   aspect-ratio: 1;
   border-radius: 50%;
   padding: 1px;
   background: conic-gradient(#0000 10%, #f03355) content-box;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-  
-  /* Define the mask */
->>>>>>> 1499d1b23a97d7855240adc6be2c07ec806fa8b7
-=======
->>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
   -webkit-mask:
     repeating-conic-gradient(#0000 0deg, #000 1deg 20deg, #0000 21deg 36deg),
     radial-gradient(farthest-side, #0000 calc(100% - var(--b) - 1px), #000 calc(100% - var(--b)));
@@ -85,8 +75,6 @@ li{
     repeating-conic-gradient(#0000 0deg, #000 1deg 20deg, #0000 21deg 36deg),
     radial-gradient(farthest-side, #0000 calc(100% - var(--b) - 1px), #000 calc(100% - var(--b)));
   mask-composite: intersect;
-
-  /* Animation */
   animation: l4 1s infinite steps(10);
 }
 
@@ -99,94 +87,83 @@ li{
   }
 }
 
-.hover-effect:hover{
-  color:  rgb(17, 150, 217);
+.hover-effect:hover {
+  color: rgb(17, 150, 217);
 }
 
-
-.logo-font{
+.logo-font {
   font-family: "Dancing Script", cursive;
-<<<<<<< HEAD
-  margin-top: 20px;
-  margin-left: 30px;
-=======
-}
-.log{
-  font-family: "Dancing Script", cursive;
->>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
 }
 
-.custom{
+.log {
+  font-family: "Dancing Script", cursive;
+}
+
+.custom {
   width: 400px;
   height: 400px;
   margin-top: 30px;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
-.color-fa{
+.color-fa {
   color: rgb(21, 27, 97);
-  font-family:"Afacad Flux", serif;
+  font-family: "Afacad Flux", serif;
 }
-.custopa{
+
+.custopa {
   padding-top: 90px;
 }
-.tfont{
+
+.tfont {
   font-family: "Zain", sans-serif;
 }
-.md-custom{
+
+.md-custom {
   color: rgb(190, 180, 180);
 }
-.link{
+
+.link {
   text-decoration: none;
 }
-.bline{
+
+.bline {
   border-radius: 10px;
   border: 1px solid rgb(109, 109, 237);
 }
-.box-shadow-custom{
+
+.box-shadow-custom {
   box-shadow: 5px 5px 10px #555;
 }
-.demo{
+
+.demo {
   margin-right: auto;
   margin-left: auto;
 }
-#nav{
+
+#nav {
   position: sticky;
-  top:0;
+  top: 0;
   z-index: 30;
 }
-.cursor{
+
+.cursor {
   cursor: pointer;
 }
 
-.footer{
-<<<<<<< HEAD
-  margin-top: 0; /* Remove any added margins */
-  padding: 20px 0; /* Adjust padding as needed */
+.footer {
+  margin-top: 0;
+  padding: 20px 0;
   background-color: #333;
   color: white;
   position: relative;
 }
 
-
-=======
-  position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #333;
-    color: white;
-
-}
-
->>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
-.custom-cart{
+.custom-cart {
   width: 170px;
   height: 170px;
 }
-.login-btn{
+
+.login-btn {
   color: white;
   height: 35px;
   width: 80px;
@@ -197,92 +174,85 @@ li{
   border: none;
   transition: 0.3s;
 }
-.login-btn:hover{
+.login-btn:hover {
   background-color: rgb(85, 85, 231);
 }
-<<<<<<< HEAD
-.cus-slider{
+
+.cus-slider {
   height: 500px;
 }
-=======
->>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
-@media (max-width:768px){
-  .style{
+
+@media (max-width: 768px) {
+  .style {
     margin-left: 0px;
   }
-  .cus-slider{
+  .cus-slider {
     height: 380px;
   }
-  .md-custom{
+  .md-custom {
     text-align: center;
   }
-  .cus-profile-btn{
+  .cus-profile-btn {
     justify-content: center;
   }
-  .custom-viewcart{
+  .custom-viewcart {
     margin-right: 20px;
   }
-  .custom-cart{
+  .custom-cart {
     width: 170px;
     height: 170px;
   }
-  .flex-directi-column{
+  .flex-directi-column {
     flex-direction: column;
   }
-  .md-display-none{
+  .md-display-none {
     display: none;
-}
-.custopa{
-  padding-top: 30px;
-}
-.custom{
-  width: 300px;
-  height:300px ;
+  }
+  .custopa {
+    padding-top: 30px;
+  }
+  .custom {
+    width: 300px;
+    height: 300px;
+  }
+  .changes {
+    flex-direction: column;
+  }
+  .img-dimension {
+    width: 300px;
+    height: 300px;
+  }
+  .bline {
+    border: none;
+  }
 }
 
-<<<<<<< HEAD
+@media (max-width: 393px) {
+  /* Add any specific styles here if needed */
+}
 
-=======
->>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
-.changes{
-  flex-direction: column;
-}
-.img-dimension{
-  width:300;
-  height: 300;
-}
-.bline{
-  border:none;
-}
-}
-<<<<<<< HEAD
-
-=======
-@media (max-width:393px){
-
-}
->>>>>>> f9fd2fecfffe65c92726eefe5ec7ef28f6d19928
-@media (max-width:375px){
-  .custom-cart{
+@media (max-width: 375px) {
+  .custom-cart {
     width: 120px;
     height: 120px;
   }
-  .cus-slider{
+  .cus-slider {
     height: 260px;
   }
 }
-@media (max-width:320px){
-  .space-custom{
+
+@media (max-width: 320px) {
+  .space-custom {
     margin-left: 20px;
   }
-  .cus-slider{
+  .cus-slider {
     height: 220px;
   }
-  .custom{
+  .custom {
     width: 220px;
     height: 220px;
   }
-  .custom-cart{
+  .custom-cart {
     margin-top: 30px;
   }
 }
