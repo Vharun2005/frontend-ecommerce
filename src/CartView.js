@@ -68,7 +68,7 @@ const CartView = ({ cartItems, setCartItems, cartloading, name, setAmount }) => 
   return (
     <div>
       {cartItems.length ? (
-      <section className='d-flex justify-content-evenly flex-direction-column'>
+      <section className='d-flex justify-content-evenly flex-direction-column flex-directi-column'>
         <div className="con">
           <p className={cartloading ? 'loader' : ''}></p>
         </div>

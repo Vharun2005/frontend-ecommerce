@@ -60,7 +60,7 @@ const Signsecondpage = ({toggleForm}) => {
                     </div>
                 </div>
         <div className='text-center mt-4'>
-          <button className='signup-btn' onClick={()=>SignupUser()}>Signup</button>
+          <button className='signup-btn' onClick={()=>SignupUser()}>{loading ? 'Loading...' : 'Signup'}</button>
           <p className='text-end mt-2 '>Aldready have an account?<a className='cursor me-2' href='/login'>Login</a></p>
         </div>
         </form>
